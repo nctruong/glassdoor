@@ -24,6 +24,7 @@ default: &default
 
 development:
   <<: *default
+  host: 127.0.0.1
   database: glassdoor_development
   username: glassdoor
   password: glassdoor
