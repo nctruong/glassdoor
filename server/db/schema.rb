@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_11_114950) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_11_123045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -94,6 +94,22 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_11_114950) do
     t.datetime "updated_at", null: false
     t.index ["cv_id"], name: "index_job_applications_on_cv_id"
     t.index ["job_id"], name: "index_job_applications_on_job_id"
+  end
+
+  create_table "job_candidates", force: :cascade do |t|
+    t.datetime "accepted_at"
+    t.datetime "invited_at"
+    t.float "score"
+    t.string "status"
+    t.datetime "viewed_at"
+    t.bigint "candidate_id"
+    t.bigint "cv_id"
+    t.bigint "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_job_candidates_on_candidate_id"
+    t.index ["cv_id"], name: "index_job_candidates_on_cv_id"
+    t.index ["job_id"], name: "index_job_candidates_on_job_id"
   end
 
   create_table "jobs", force: :cascade do |t|
