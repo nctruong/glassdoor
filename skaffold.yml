@@ -1,0 +1,66 @@
+apiVersion: skaffold/v4beta13
+kind: Config
+
+manifests:
+  rawYaml:
+    - infra/k8s/*
+    - infra/k8s-dev/*
+#      - infra/k8s-monitor/*
+deploy:
+  kubectl: {}
+
+build:
+  local:
+    push: false
+    useBuildkit: true
+  platforms: ["linux/amd64"]
+
+  artifacts: # clarify of deployment
+    - image: willnguyen/glassdoor-server
+      context: server
+#      platforms:
+#        - linux/amd64
+      platforms: ["linux/amd64"]
+      docker:
+        dockerfile: Dockerfile
+
+      sync:
+        manual:
+          - src: "app/**/*.rb"
+            dest: "app"
+          - src: "app/**/*.erb"
+            dest: "app"
+          - src: "lib/**/*.erb"
+            dest: "app"
+          - src: "config/**/*.rb"
+            dest: "config"
+          - src: "Gemfile"
+            dest: "."
+          - src: "Gemfile.lock"
+            dest: "."
+#  hooks:
+#    after:
+#      - command:
+#        - kubectl
+#        - exec
+#        - deployment/server
+#        - --
+#        - bundle
+#        - exec
+#        - rails
+#        - db:create
+#      - command:
+#        - kubectl
+#        - exec
+#        - deployment/server
+#        - --
+#        - bundle
+#        - exec
+#        - rails
+#        - db:migrate
+
+portForward:
+  - resourceType: service
+    resourceName: server
+    port: 3000
+    localPort: 3000
