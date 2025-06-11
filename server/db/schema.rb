@@ -10,9 +10,113 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_11_091530) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_11_114950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "applicants", force: :cascade do |t|
+    t.string "cv_level"
+    t.string "email"
+    t.datetime "last_applied_date"
+    t.string "latest_status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_applicants_on_user_id"
+  end
+
+  create_table "candidates", force: :cascade do |t|
+    t.string "city"
+    t.string "companies"
+    t.string "email"
+    t.datetime "first_applied_date"
+    t.datetime "first_approved_date"
+    t.string "fullname"
+    t.string "phone_number"
+    t.string "scanned_email"
+    t.integer "latest_cv_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cv", force: :cascade do |t|
+    t.string "status"
+    t.string "content"
+    t.string "skill_tags"
+    t.string "scanned_job_title"
+    t.string "scanned_employer_names"
+    t.string "state"
+    t.bigint "applicant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["applicant_id"], name: "index_cv_on_applicant_id"
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.bigint "employer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employer_id"], name: "index_employees_on_employer_id"
+  end
+
+  create_table "employers", force: :cascade do |t|
+    t.string "company_type"
+    t.string "culture_description"
+    t.datetime "deleted_at"
+    t.string "email"
+    t.integer "live_jobs_count"
+    t.string "short_description"
+    t.string "long_description"
+    t.string "name"
+    t.integer "page_views"
+    t.boolean "overtime"
+    t.integer "paid_jobs_count"
+    t.integer "size"
+    t.string "slug"
+    t.string "website_url"
+    t.string "country"
+    t.integer "total_jobs_posted"
+    t.integer "trial_jobs_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "job_applications", force: :cascade do |t|
+    t.string "email"
+    t.boolean "email_to_candidate_status"
+    t.boolean "email_to_employer_status"
+    t.string "fullname"
+    t.bigint "cv_id", null: false
+    t.bigint "job_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cv_id"], name: "index_job_applications_on_cv_id"
+    t.index ["job_id"], name: "index_job_applications_on_job_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "address"
+    t.string "description"
+    t.integer "credit_type"
+    t.string "employer_short_description"
+    t.string "employer_long_description"
+    t.string "employer_culture_description"
+    t.string "employer_email"
+    t.datetime "expired_at"
+    t.integer "job_applications_count"
+    t.datetime "published_at"
+    t.string "question"
+    t.string "salary"
+    t.string "slug"
+    t.string "title"
+    t.string "status"
+    t.bigint "employer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employer_id"], name: "index_jobs_on_employer_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,7 +127,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_11_091530) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "fullname"
+    t.string "phone"
+    t.integer "roke_mask"
+    t.integer "sign_in_count"
+    t.string "title"
+    t.boolean "viewable_cv"
+    t.integer "employer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["employer_id"], name: "index_users_on_employer_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 end
