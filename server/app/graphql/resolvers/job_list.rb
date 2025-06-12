@@ -8,18 +8,16 @@ module Resolvers
     argument :ids, [String], required: false, default_value: []
 
     def resolve(page_index:, page_size:, params:, ids:)
-      if ids.present?
-        if context[:current_admin].employer?
-          return context[:current_admin].employer.jobs.where(id: ids).limit(page_size)
-        else
-          return Job.where(id: ids).limit(page_size)
-        end
-      end
+      # if ids.present?
+      #   if context[:current_admin]
+      #     return Job.where(id: ids).limit(page_size)
+      #   else
+      #     # TODO: limit published jobs
+      #     return Job.where(id: ids).limit(page_size)
+      #   end
+      # end
 
-      jobs = JobListBuilder.new
-        .filtered_jobs_within_scope(admin: context[:current_admin], params: params)
-        .page(page_index).per(page_size)
-        .includes(:employer)
+      jobs = Job.where(id: ids).limit(page_size)
       jobs
     end
   end

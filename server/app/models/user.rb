@@ -12,4 +12,9 @@ class User < ApplicationRecord
 
   validates :fullname, length: {within: 0..50, too_long: 'Too many characters'}
   validates :email, presence: true, uniqueness: true
+
+  enum :role, {
+    admin: 0,
+    user: 1
+  }
 end

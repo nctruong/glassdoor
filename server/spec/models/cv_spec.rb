@@ -15,18 +15,18 @@ RSpec.describe Cv, type: :model do
   describe 'enums' do
     it do
       should define_enum_for(:status).with_values(
-        pending:       'Pending Review',
-        approved:      'Approved',
-        rejected_120:  '120 Rejected',
-        rejected_360:  '360 Rejected',
-        spam_rejected: 'Spam Rejected'
+        pending:       0,
+        approved:      1,
+        rejected_120:  2,
+        rejected_360:  3,
+        spam_rejected: 4
       )
     end
 
     it do
       should define_enum_for(:state).with_values(
-        scanned:  'scanned',
-        reviewed: 'reviewed'
+        scanned:  0,
+        reviewed: 1
       )
     end
   end

@@ -15,5 +15,7 @@ FactoryBot.define do
     slug { "MyString" }
     title { "MyString" }
     status { "MyString" }
+
+    association :employer
   end
 end

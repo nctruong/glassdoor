@@ -7,7 +7,7 @@ FactoryBot.define do
     live_jobs_count { 1 }
     short_description { "MyString" }
     long_description { "MyString" }
-    name { "MyString" }
+    name { Faker::Company.name }
     page_views { 1 }
     overtime { false }
     paid_jobs_count { 1 }
