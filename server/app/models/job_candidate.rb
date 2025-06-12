@@ -1,3 +1,4 @@
+# Detecting candidates for a job
 class JobCandidate < ApplicationRecord
   belongs_to :job
   belongs_to :cv, class_name: 'CV'

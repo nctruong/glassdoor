@@ -4,13 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :user_job_applications, dependent: :destroy
-  has_many :job_applications, through: :user_job_applications
-
-  # has_secure_password\
   has_one :applicant
+  has_many :job_applications, through: :applicant
+  has_many :cvs, through: :applicant
 
-  validates :name, presence: true
+  belongs_to :employer, optional: true
+
   validates :name, length: {within: 0..50, too_long: 'Too many characters'}
-  validates :email, presence: true, email: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 end

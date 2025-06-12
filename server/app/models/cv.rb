@@ -6,7 +6,7 @@ class Cv < ApplicationRecord
 
   validates :email, :status, presence: true
 
-  enum status: {
+  enum :status, {
     pending:       'Pending Review',
     approved:      'Approved',
     rejected_120:  '120 Rejected',
@@ -14,7 +14,7 @@ class Cv < ApplicationRecord
     spam_rejected: 'Spam Rejected'
   }
 
-  enum state: { scanned: 'scanned', reviewed: 'reviewed' }
+  enum :state, { scanned: 'scanned', reviewed: 'reviewed' }
 
   attribute :status, :string, default: 'pending'
 end

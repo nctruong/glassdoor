@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_11_123045) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_12_043729) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -92,6 +92,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_11_123045) do
     t.bigint "job_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "applicant_id"
+    t.index ["applicant_id"], name: "index_job_applications_on_applicant_id"
     t.index ["cv_id"], name: "index_job_applications_on_cv_id"
     t.index ["job_id"], name: "index_job_applications_on_job_id"
   end
@@ -132,6 +134,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_11_123045) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["employer_id"], name: "index_jobs_on_employer_id"
+  end
+
+  create_table "user_job_applications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "job_application_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_application_id"], name: "index_user_job_applications_on_job_application_id"
+    t.index ["user_id"], name: "index_user_job_applications_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
