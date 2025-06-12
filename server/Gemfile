@@ -74,3 +74,8 @@ gem 'jwt'
 
 
 gem "shoulda-matchers", "~> 6.5", :group => :test
+
+gem "graphql", "~> 2.5"
+gem "graphiql-rails", group: :development
+
+gem "faker", "~> 3.5", :group => :development

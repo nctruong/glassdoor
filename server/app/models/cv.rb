@@ -7,14 +7,14 @@ class Cv < ApplicationRecord
   validates :email, :status, presence: true
 
   enum :status, {
-    pending:       'Pending Review',
-    approved:      'Approved',
-    rejected_120:  '120 Rejected',
-    rejected_360:  '360 Rejected',
-    spam_rejected: 'Spam Rejected'
+    pending: 0,
+    approved: 1,
+    rejected_120: 2,
+    rejected_360: 3,
+    spam_rejected: 4
   }
 
-  enum :state, { scanned: 'scanned', reviewed: 'reviewed' }
+  enum :state, { scanned: 0, reviewed: 1 }
 
-  attribute :status, :string, default: 'pending'
+  attribute :status, :string, default: :pending
 end
