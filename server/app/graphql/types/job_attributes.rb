@@ -1,0 +1,30 @@
+class Types::JobAttributes < Types::BaseInputObject
+  argument :employer_id, String, required: false
+  argument :title, String, required: false
+  argument :description, String, required: false
+  argument :your_skills_and_experience, String, required: false
+  argument :employer_culture_description, String, required: false
+  argument :salary, String, required: false
+  argument :city, String, required: false
+  argument :address, String, required: false
+  argument :street_name, String, required: false
+  argument :street_number, String, required: false
+  argument :second_city, String, required: false
+  argument :question, String, required: false
+  argument :employer_long_description, String, required: false
+  argument :employer_email, String, required: false
+  argument :second_employer_email, String, required: false
+  argument :credit_type, String, required: false
+  argument :prioritized_level, String, required: false
+  argument :minimum_salary, String, required: false
+  argument :maximum_salary, String, required: false
+  argument :show_salary_range, String, required: false
+  argument :benefit_1, String, required: false
+  argument :benefit_2, String, required: false
+  argument :benefit_3, String, required: false
+  argument :primary_skill_tag_id, String, required: false
+  argument :secondary_skill_tag_ids, [String], required: false
+  argument :published_at, String, required: false
+  argument :location_id, Int, required: false
+  argument :second_location_id, Int, required: false
+end
