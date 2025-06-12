@@ -1,6 +1,6 @@
-class CreateEmails < ActiveRecord::Migration[8.0]
+class CreateCvs < ActiveRecord::Migration[8.0]
   def change
-    create_table :cv do |t|
+    create_table :cvs do |t|
       t.string :status
       t.string :content
       t.string :skill_tags

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_12_043729) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_12_063451) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -39,17 +39,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_12_043729) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cv", force: :cascade do |t|
-    t.string "status"
+  create_table "cvs", force: :cascade do |t|
     t.string "content"
     t.string "skill_tags"
     t.string "scanned_job_title"
     t.string "scanned_employer_names"
-    t.string "state"
     t.bigint "applicant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["applicant_id"], name: "index_cv_on_applicant_id"
+    t.string "email"
+    t.integer "status"
+    t.integer "state"
+    t.index ["applicant_id"], name: "index_cvs_on_applicant_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -102,13 +103,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_12_043729) do
     t.datetime "accepted_at"
     t.datetime "invited_at"
     t.float "score"
-    t.string "status"
     t.datetime "viewed_at"
     t.bigint "candidate_id"
     t.bigint "cv_id"
     t.bigint "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["candidate_id"], name: "index_job_candidates_on_candidate_id"
     t.index ["cv_id"], name: "index_job_candidates_on_cv_id"
     t.index ["job_id"], name: "index_job_candidates_on_job_id"

@@ -3,7 +3,7 @@ FactoryBot.define do
     company_type { "MyString" }
     culture_description { "MyString" }
     deleted_at { "2025-06-11 18:33:48" }
-    email { "MyString" }
+    email { "MyString@gmail.com" }
     live_jobs_count { 1 }
     short_description { "MyString" }
     long_description { "MyString" }

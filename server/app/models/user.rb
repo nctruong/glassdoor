@@ -10,6 +10,6 @@ class User < ApplicationRecord
 
   belongs_to :employer, optional: true
 
-  validates :name, length: {within: 0..50, too_long: 'Too many characters'}
+  validates :fullname, length: {within: 0..50, too_long: 'Too many characters'}
   validates :email, presence: true, uniqueness: true
 end

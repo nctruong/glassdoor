@@ -8,6 +8,8 @@ FactoryBot.define do
     fullname { "MyString" }
     phone_number { "MyString" }
     scanned_email { "MyString" }
-    latest_cv_id { 1 }
+
+    association :cv, factory: :cv
+    latest_cv_id { cv.id }
   end
 end

@@ -72,3 +72,5 @@ gem 'devise'
 gem 'bcrypt'
 gem 'jwt'
 
+
+gem "shoulda-matchers", "~> 6.5", :group => :test
