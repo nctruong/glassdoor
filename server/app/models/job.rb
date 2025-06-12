@@ -9,4 +9,7 @@ class Job < ApplicationRecord
 
   delegate :name, to: :employer, prefix: :employer, allow_nil: true
 
+  def self.sort_with(field: 'published_at', direction: 'asc')
+    order(field => direction)
+  end
 end

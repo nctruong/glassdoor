@@ -36,6 +36,7 @@
     <orderEntry type="library" scope="PROVIDED" name="actionview (v8.0.2, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activejob (v8.0.2, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v8.0.2, rbenv: 3.4.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activemodel-serializers-xml (v1.0.3, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v8.0.2, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v8.0.2, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v8.0.2, rbenv: 3.4.4) [gem]" level="application" />
@@ -62,6 +63,7 @@
     <orderEntry type="library" scope="PROVIDED" name="devise (v4.9.4, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.6.2, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dotenv (v3.1.8, rbenv: 3.4.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="draper (v4.0.4, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="drb (v2.2.3, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ed25519 (v1.4.0, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erb (v5.0.1, rbenv: 3.4.4) [gem]" level="application" />
@@ -83,6 +85,10 @@
     <orderEntry type="library" scope="PROVIDED" name="json (v2.12.2, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jwt (v2.10.1, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kamal (v2.6.1, rbenv: 3.4.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari (v1.2.2, rbenv: 3.4.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari-actionview (v1.2.2, rbenv: 3.4.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari-activerecord (v1.2.2, rbenv: 3.4.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari-core (v1.2.2, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="language_server-protocol (v3.17.0.5, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="lint_roller (v1.1.0, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="logger (v1.7.0, rbenv: 3.4.4) [gem]" level="application" />
@@ -131,6 +137,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v6.14.0, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.10.0, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="reline (v0.6.1, rbenv: 3.4.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="request_store (v1.7.0, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="responders (v3.1.1, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rexml (v3.4.1, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-core (v3.13.4, rbenv: 3.4.4) [gem]" level="application" />
@@ -145,6 +152,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rubocop-rails-omakase (v1.1.0, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-graphviz (v1.2.5, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-progressbar (v1.13.0, rbenv: 3.4.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby2_keywords (v0.0.5, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v2.4.1, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="securerandom (v0.4.1, rbenv: 3.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v4.33.0, rbenv: 3.4.4) [gem]" level="application" />
@@ -187,10 +195,12 @@
         <option value="benchmark" />
         <option value="channel" />
         <option value="controller" />
+        <option value="decorator" />
         <option value="devise" />
         <option value="devise:controllers" />
         <option value="devise:install" />
         <option value="devise:views" />
+        <option value="draper:install" />
         <option value="erb:authentication" />
         <option value="erd:install" />
         <option value="factory_bot:model" />
@@ -213,6 +223,8 @@
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
+        <option value="kaminari:config" />
+        <option value="kaminari:views" />
         <option value="mailbox" />
         <option value="mailer" />
         <option value="migration" />
@@ -223,6 +235,7 @@
         <option value="responders_controller" />
         <option value="rspec:channel" />
         <option value="rspec:controller" />
+        <option value="rspec:decorator" />
         <option value="rspec:feature" />
         <option value="rspec:generator" />
         <option value="rspec:helper" />
@@ -249,6 +262,7 @@
         <option value="test_unit:authentication" />
         <option value="test_unit:channel" />
         <option value="test_unit:controller" />
+        <option value="test_unit:decorator" />
         <option value="test_unit:generator" />
         <option value="test_unit:helper" />
         <option value="test_unit:install" />
@@ -272,10 +286,12 @@
         <option value="benchmark" />
         <option value="channel" />
         <option value="controller" />
+        <option value="decorator" />
         <option value="devise" />
         <option value="devise:controllers" />
         <option value="devise:install" />
         <option value="devise:views" />
+        <option value="draper:install" />
         <option value="erb:authentication" />
         <option value="erd:install" />
         <option value="factory_bot:model" />
@@ -298,6 +314,8 @@
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
+        <option value="kaminari:config" />
+        <option value="kaminari:views" />
         <option value="mailbox" />
         <option value="mailer" />
         <option value="migration" />
@@ -308,6 +326,7 @@
         <option value="responders_controller" />
         <option value="rspec:channel" />
         <option value="rspec:controller" />
+        <option value="rspec:decorator" />
         <option value="rspec:feature" />
         <option value="rspec:generator" />
         <option value="rspec:helper" />
@@ -334,6 +353,7 @@
         <option value="test_unit:authentication" />
         <option value="test_unit:channel" />
         <option value="test_unit:controller" />
+        <option value="test_unit:decorator" />
         <option value="test_unit:generator" />
         <option value="test_unit:helper" />
         <option value="test_unit:install" />
@@ -677,6 +697,7 @@
           <RakeTaskImpl id="test">
             <subtasks>
               <RakeTaskImpl description="Reset the database and run `bin/rails test`" fullCommand="test:db" id="db" />
+              <RakeTaskImpl description="Run tests for {decorators: &quot;test:prepare&quot;}" fullCommand="test:decorators" id="decorators" />
               <RakeTaskImpl description="" fullCommand="test:all" id="all" />
               <RakeTaskImpl description="" fullCommand="test:channels" id="channels" />
               <RakeTaskImpl description="" fullCommand="test:controllers" id="controllers" />

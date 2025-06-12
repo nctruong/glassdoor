@@ -79,3 +79,7 @@ gem "graphql", "~> 2.5"
 gem "graphiql-rails", group: :development
 
 gem "faker", "~> 3.5", :group => :development
+
+gem "kaminari", "~> 1.2"
+
+gem "draper", "~> 4.0"
