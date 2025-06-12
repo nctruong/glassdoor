@@ -8,7 +8,7 @@ module Mutations
 
     def resolve(job_id:, attributes:)
       job        = Job.find(job_id)
-
+      job.update(params_hash(attributes))
       {job: job}
     rescue ActiveRecord::RecordInvalid => e
       {error: e.record.errors.full_messages.first}
@@ -19,12 +19,7 @@ module Mutations
     private
 
     def params_hash(attributes)
-      hash             = attributes.to_h
-      hash[:benefit_1] = hash[:benefit1]
-      hash[:benefit_2] = hash[:benefit2]
-      hash[:benefit_3] = hash[:benefit3]
-      hash.merge!(primary_job_skill_tag_attributes: {skill_tag_id: hash[:primary_skill_tag_id]})
-      ActionController::Parameters.new(job: hash)
+      ActionController::Parameters.new(attributes.to_h).permit!
     end
   end
 end
