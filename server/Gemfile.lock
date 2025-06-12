@@ -105,6 +105,9 @@ GEM
     connection_pool (2.5.3)
     crass (1.0.6)
     date (3.4.1)
+    ddtrace (0.48.0)
+      ffi (~> 1.0)
+      msgpack
     debug (1.10.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
@@ -116,6 +119,9 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.6.2)
     dotenv (3.1.8)
+    dotenv-rails (3.1.8)
+      dotenv (= 3.1.8)
+      railties (>= 6.1)
     draper (4.0.4)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -136,6 +142,8 @@ GEM
       railties (>= 5.0.0)
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
+    ffi (1.17.2)
+    ffi (1.17.2-x86_64-linux-gnu)
     fiber-storage (1.0.1)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
@@ -430,8 +438,10 @@ DEPENDENCIES
   bootsnap
   brakeman
   capybara
+  ddtrace (~> 0.48.0)
   debug
   devise
+  dotenv-rails (~> 3.1)
   draper (~> 4.0)
   factory_bot_rails
   faker (~> 3.5)
