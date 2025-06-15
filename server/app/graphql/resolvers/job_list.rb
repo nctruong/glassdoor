@@ -8,8 +8,8 @@ module Resolvers
     argument :ids, [String], required: false, default_value: []
 
     def resolve(page_index:, page_size:, params:, ids:)
-      jobs = Job.where(id: ids).limit(page_size) if ids.present?
-      jobs ||= Job.page(page_index).per(page_size)
+      jobs = Job.includes(:employer).where(id: ids).limit(page_size) if ids.present?
+      jobs ||= Job.includes(:employer).page(page_index).per(page_size)
 
       {
         jobs: jobs,
