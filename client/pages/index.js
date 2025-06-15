@@ -1,25 +1,69 @@
 import Link from 'next/link';
 import { useEffect, useState } from "react";
+import { gql, useQuery } from "@apollo/client";
+import apolloClient from "../lib/apolloClient.js";
 
-const LandingPage = ({ currentUser, jsonData }) => {
-    const { data, meta: { total, page, pageSize } } = jsonData;
+const LandingPage = ( { currentUser, page, pageSize } ) => {
+    console.log(`------------------------------------------------page: ${page}, pageSize: ${pageSize}`)
     const [currentPage, setCurrentPage] = useState(page);
-
-    const totalPages = Math.ceil(total / pageSize);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+    const [jsonData, setJsonData] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
-        setCurrentPage(page);
-    }, [page]);
+        const fetchJobs = async () => {
+            const GET_JOBS = gql`
+                query GetJobs($pageIndex: Int!, $pageSize: Int!) {
+                    jobCollection(pageIndex: $pageIndex, pageSize: $pageSize) {
+                        jobs {
+                            id
+                            title
+                            description
+                            salary
+                            employer {
+                                name
+                                email
+                            }
+                        },
+                        total,
+                        page,
+                        pageSize
+                    }
+                }
+            `
+
+            console.log(`page: ${page}, pageSize: ${pageSize}`);
+            const { data, loading, error } = await apolloClient.query({
+                query: GET_JOBS,
+                variables: {
+                    pageIndex: parseInt(page),
+                    pageSize: parseInt(pageSize),
+                },
+            });
+            console.log(`data: ${JSON.stringify(data)}`);
+            setJsonData(data.jobCollection.jobs);
+            setCurrentPage(data.jobCollection.page);
+            setTotal(data.jobCollection.total)
+
+            setTotalPages(Math.ceil(total / pageSize))
+        }
+        fetchJobs()
+    }, []);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
 
     return (
-        <div className="max-w-7xl mx-auto p-6 bg-white rounded-lg shadow">
+        <div className="max-w-7xl mx-auto p-6 bg-white rounded-lg shadow m-5">
             <h3 className="text-2xl font-bold mb-2 text-gray-800">🛍️ jobs</h3>
             <h4 className="text-sm text-gray-600 mb-6">
                 Total: {total}, Page: {page}, Page Size: {pageSize}
             </h4>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {data.map((job) => (
+                {jsonData?.map((job) => (
                     <div
                         key={job.id}
                         className="p-4 border rounded-lg shadow-sm hover:shadow-md transition"
@@ -57,11 +101,9 @@ const LandingPage = ({ currentUser, jsonData }) => {
     );
 };
 
-LandingPage.getInitialProps = async (context, client, currentUser) => {
-    const { page, pageSize } = context.query;
-    // const { data } = await client.get(`/api/jobs?page=${page}&pageSize=${pageSize}`);
-    const data = {data: [{id:1, title: "Ruby on Rails Dev", description: "abc", salary: 5000}], meta: { total: 111111, page, pageSize } };
-    return { jsonData: data };
+LandingPage.getInitialProps = async (context) => {
+    const { page = 1, pageSize = 20 } = context.query;
+    return { page, pageSize };
 };
 
 export default LandingPage;

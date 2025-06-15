@@ -37,14 +37,14 @@ const Header = ({currentUser}) => {
                     <ul className="flex space-x-5">
                         {links}
 
-                        {auth.isLoggedIn && (
-                        <li
-                            className="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium hover:text-indigo-600">
-                            <Link href='/auth/signout' style={{'margin-left': '15px'}}>
-                                Sign out
-                            </Link>
-                        </li>
-                        )}
+                        {/*{auth.isLoggedIn && (*/}
+                        {/*<li*/}
+                        {/*    className="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium hover:text-indigo-600">*/}
+                        {/*    <Link href='/auth/signout' style={{'margin-left': '15px'}}>*/}
+                        {/*        Sign out*/}
+                        {/*    </Link>*/}
+                        {/*</li>*/}
+                        {/*)}*/}
                     </ul>
                 </div>
             </div>
