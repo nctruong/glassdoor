@@ -1,16 +1,13 @@
 # frozen_string_literal: true
 
-class GraphqlController < ApplicationController
-  # skip_before_action :authenticate_user!
-  protect_from_forgery with: :null_session
+class Api::V1::GraphqlController < Api::V1::ApplicationController
 
   def execute
     variables = prepare_variables(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
     context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
+      current_user: @current_user,
     }
     result = ServerSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result

@@ -53,15 +53,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_12_080440) do
     t.index ["applicant_id"], name: "index_cvs_on_applicant_id"
   end
 
-  create_table "employees", force: :cascade do |t|
-    t.string "name"
-    t.string "title"
-    t.bigint "employer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["employer_id"], name: "index_employees_on_employer_id"
-  end
-
   create_table "employers", force: :cascade do |t|
     t.string "company_type"
     t.string "culture_description"

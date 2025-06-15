@@ -69,7 +69,7 @@ end
 
 
 gem 'devise'
-gem 'bcrypt'
+# gem 'bcrypt'
 gem 'jwt'
 
 
@@ -89,3 +89,5 @@ gem "dotenv-rails", "~> 3.1"
 # gem "newrelic_rpm", "~> 9.19"
 
 gem "ddtrace", "~> 0.48.0", require: 'ddtrace/auto_instrument'
+
+gem "rack-cors", "~> 3.0"

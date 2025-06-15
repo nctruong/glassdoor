@@ -2,13 +2,18 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   end
-  post "/graphql", to: "graphql#execute"
+
   namespace :api do
     namespace :v1 do
+      post "auth/login", to: "auth#login"
+
+      post "/graphql", to: "graphql#execute"
+
       get "cv/index"
     end
   end
   devise_for :users
+
   get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -23,7 +28,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
-  namespace :api do
+  namespace :apiService do
     namespace :v1 do
       resources :cvs
     end
