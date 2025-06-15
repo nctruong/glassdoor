@@ -7,12 +7,12 @@ RSpec.describe "Api::V1::Cvs", type: :request do
 
   describe "GET /index" do
     it 'returns success' do
-      get '/apiService/v1/cvs', headers: headers
+      get '/api/v1/cvs', headers: headers
       expect(response).to have_http_status(:ok)
     end
 
     it 'returns error' do
-      get '/apiService/v1/cvs'
+      get '/api/v1/cvs'
       expect(response).to have_http_status(401)
     end
   end

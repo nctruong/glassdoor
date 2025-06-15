@@ -2,7 +2,7 @@ module Types
   class JobType < Types::BaseObject
     include ActionView::Helpers::TranslationHelper
 
-    field :id, ID, null: false
+    field :id, Int, null: false
     field :title, String, null: false
 
     field :description, String, null: true

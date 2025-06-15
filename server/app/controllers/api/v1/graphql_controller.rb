@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::GraphqlController < Api::V1::ApplicationController
+  skip_before_action :authenticate_request
 
   def execute
     variables = prepare_variables(params[:variables])

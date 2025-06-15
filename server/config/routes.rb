@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   if Rails.env.development?
-    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/api/v1/graphql"
   end
 
   namespace :api do
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
-  namespace :apiService do
+  namespace :api do
     namespace :v1 do
       resources :cvs
     end

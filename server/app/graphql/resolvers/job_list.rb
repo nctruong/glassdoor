@@ -1,6 +1,6 @@
 module Resolvers
   class JobList < BaseResolver
-    type [Types::JobType], null: true
+    type Types::JobCollectionType, null: true
 
     argument :page_index, Int, required: false, default_value: 1
     argument :page_size, Int, required: false, default_value: 20
@@ -10,7 +10,13 @@ module Resolvers
     def resolve(page_index:, page_size:, params:, ids:)
       jobs = Job.where(id: ids).limit(page_size) if ids.present?
       jobs ||= Job.page(page_index).per(page_size)
-      jobs
+
+      {
+        jobs: jobs,
+        total: Job.count,
+        page: page_index,
+        page_size: page_size,
+      }
     end
   end
 end
