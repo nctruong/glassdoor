@@ -3,13 +3,16 @@ import client from "../lib/apolloClient";
 import '../styles/globals.css';
 import Header from "../components/header";
 import api from "../services/apiService.js";
-import Router from "next/router";
+import Router, {useRouter} from "next/router";
 import auth from "../services/authService.js";
 import {useEffect} from "react";
 
 const AppComponent = ({Component, pageProps, currentUser}) => {
+    const router = useRouter()
     useEffect(() => {
-        if (!auth.isLoggedIn) {
+
+        const currentPath = router.pathname
+        if (currentPath !== '/auth/signup' && !auth.isLoggedIn) {
             Router.push("/auth/signin");
         }
     }, []);
@@ -17,7 +20,7 @@ const AppComponent = ({Component, pageProps, currentUser}) => {
     return (
         <ApolloProvider client={client}>
             <Header currentUser={currentUser}/>
-            <div className="container mx-auto mt-15">
+            <div className="container mx-auto">
                 <Component currentUser={currentUser} {...pageProps} />
             </div>
         </ApolloProvider>
