@@ -91,3 +91,7 @@ gem "dotenv-rails", "~> 3.1"
 gem "ddtrace", "~> 0.48.0", require: 'ddtrace/auto_instrument'
 
 gem "rack-cors", "~> 3.0"
+
+gem "elasticsearch-model", "~> 8.0"
+
+gem "elasticsearch-rails", "~> 8.0"
