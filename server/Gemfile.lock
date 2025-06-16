@@ -468,6 +468,7 @@ DEPENDENCIES
   devise
   dotenv-rails (~> 3.1)
   draper (~> 4.0)
+  elasticsearch (~> 8.18)
   elasticsearch-model (~> 8.0)
   elasticsearch-rails (~> 8.0)
   factory_bot_rails

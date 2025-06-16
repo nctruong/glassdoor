@@ -1,4 +1,7 @@
 class Job < ApplicationRecord
+  include Searchable
+
+
   belongs_to :employer, touch: true
 
   has_many :job_applications
