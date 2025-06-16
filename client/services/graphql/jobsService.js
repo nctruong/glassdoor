@@ -1,5 +1,5 @@
 import {gql} from "@apollo/client";
-import apolloClient from "../lib/apolloClient.js";
+import apolloClient from "../../lib/apolloClient.js";
 
 const getJobs = async (pageIndex, pageSize) => {
     const GET_JOBS = gql`

@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {gql, useQuery} from "@apollo/client";
 import apolloClient from "../lib/apolloClient.js";
 import Pagination from "../components/jobs/pagination.js";
-import {getJobs} from "../services/jobsService.js";
+import {getJobs} from "../services/graphql/jobsService.js";
 
 const LandingPage = ({currentUser, page, pageSize}) => {
     console.log(`------------------------------------------------page: ${page}, pageSize: ${pageSize}`)
