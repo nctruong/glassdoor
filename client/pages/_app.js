@@ -17,7 +17,7 @@ const AppComponent = ({Component, pageProps, currentUser}) => {
     return (
         <ApolloProvider client={client}>
             <Header currentUser={currentUser}/>
-            <div className="container mt-15">
+            <div className="container mx-auto mt-15">
                 <Component currentUser={currentUser} {...pageProps} />
             </div>
         </ApolloProvider>
