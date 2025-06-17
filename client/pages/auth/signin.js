@@ -21,7 +21,7 @@ export default () => {
         e.preventDefault()
         await doRequest()
     }
-    return <form onSubmit={onSubmit} className="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-md space-y-6 mt-5">
+    return <form onSubmit={onSubmit} className="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-md space-y-6 mt-10">
         <h1 className="text-2xl font-semibold text-center text-gray-800">Sign In</h1>
 
         <div className="space-y-1">

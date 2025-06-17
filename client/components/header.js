@@ -1,19 +1,22 @@
 import Link from 'next/link';
 import auth from "../services/authService";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 const Header = ({currentUser}) => {
-    let signedIn = false;
-    let links = []
+    const [signedIn, setSignIn] = useState(false);
+    const [links, setLinks] = useState([]);
 
     useEffect(() => {
-        signedIn = auth.isLoggedIn
+        setSignIn(auth.isLoggedIn)
     })
 
     useEffect(() => {
-        links = [
-            !currentUser && {label: 'Sign Up', href: '/auth/signup'},
-            !currentUser && {label: 'Sign In', href: '/auth/signin'},
+        setLinks([
+            !signedIn && {label: 'Sign Up', href: '/auth/signup'},
+            !signedIn && {label: 'Sign In', href: '/auth/signin'},
+            {label: 'Jobs', href: '/'},
+            {label: 'Jobs Applications', href: '/job_applications/'},
+            {label: 'Users', href: '/users/'}
         ]
             .filter((linkConfig) => linkConfig)
             .map(({label, href}) => {
@@ -25,7 +28,7 @@ const Header = ({currentUser}) => {
                         </Link>
                     </li>
                 );
-            });
+            }))
     }, [signedIn]);
 
     return (
@@ -47,7 +50,7 @@ const Header = ({currentUser}) => {
                     <ul className="flex space-x-5">
                         {links}
 
-                        {!signedIn && (
+                        {signedIn && (
                         <li
                             className="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium hover:text-indigo-600">
                             <Link href='/auth/signout' style={{'margin-left': '15px'}}>

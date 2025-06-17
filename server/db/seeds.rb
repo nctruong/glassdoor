@@ -65,7 +65,7 @@ require 'faker'
         title: Faker::Job.title,
         employer: employer,
         address: Faker::Address.full_address,
-        description: Faker::Job.field,
+        description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
         salary: "#{rand(50..150)}k",
         published_at: Time.now - 7.days,
         expired_at: Time.now + 30.days,
