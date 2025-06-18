@@ -7,5 +7,8 @@ module Types
     argument :job_id, String, required: false, default_value: nil
     argument :sort_field, String, required: false, default_value: :created_at
     argument :sort_direction, String, required: false, default_value: :desc
+    argument :email, String, required: false, default_value: nil
+    argument :job_title, String, required: false, default_value: nil
+    argument :candidate_name, String, required: false, default_value: nil
   end
 end

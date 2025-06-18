@@ -12,6 +12,8 @@ module Types
     field :scopes, JobApplicationScopeStat, null: true
     field :total, Int, null: true
     field :data, [JobApplicationType], null: true
+    field :page, Int, null: true
+    field :page_size, Int, null: true
 
     def data
       collection
@@ -21,12 +23,27 @@ module Types
       collection.total_count
     end
 
+    def page
+      params[:page_index]
+    end
+
+    def page_size
+      params[:page_size]
+    end
+
     private
 
     def collection
-      JobApplication
-        .page(params[:page_index])
-        .per(params[:page_size])
+      if params[:candidate_name]
+        JobApplication.search(query: { match: { fullname: params[:candidate_name] } })
+                      .records
+                      .page(params[:page_index])
+                      .per(params[:page_size])
+      else
+        JobApplication
+          .page(params[:page_index])
+          .per(params[:page_size])
+      end
     end
 
     def params

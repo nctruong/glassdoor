@@ -20,6 +20,10 @@ module Searchable
     } do
       mappings dynamic: 'false' do
         indexes :title, type: :text, analyzer: 'custom_text_analyzer'
+        indexes :fullname, type: "text", fields: {
+          keyword: { type: :keyword }
+        }
+        indexes :email, type: :keyword
         indexes :status, type: :keyword
         indexes :published_at, type: :date
       end

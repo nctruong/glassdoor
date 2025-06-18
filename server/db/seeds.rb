@@ -23,6 +23,8 @@ require 'faker'
       password: "password",
       fullname: Faker::Name.name,
       phone: Faker::PhoneNumber.cell_phone,
+      title: Faker::Job.title,
+      role: 1,
       employer: [employer, nil].sample
     )
 
