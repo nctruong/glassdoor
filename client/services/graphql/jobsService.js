@@ -35,4 +35,49 @@ const getJobs = async (pageIndex, pageSize, params = null) => {
 
     return { data, loading, error };
 }
-export { getJobs };
+
+const getJobApplications = async (pageIndex, pageSize, candidateName, scope = "all") => {
+    const GET_JOBS = gql`
+        query GetJobs($pageIndex: Int!, $pageSize: Int!, $scope: String, $candidateName: String  ) {
+            jobApplications(params:{ pageIndex: $pageIndex, pageSize: $pageSize, scope: $scope, candidateName: $candidateName }) {
+                data {
+                    id
+                    job {
+                        title
+                    }
+                    email
+                    fullname
+                    employer {
+                        name
+                        email
+                    }
+                },
+                scopes {
+                    all,
+                    approved,
+                    pending
+                    rejected120,
+                    rejected360,
+                    spamRejected
+                }
+                total,
+                page,
+                pageSize
+            }
+        }
+    `
+    let variables = {
+        pageIndex: parseInt(pageIndex),
+        pageSize: parseInt(pageSize),
+        scope: scope,
+    }
+    if (candidateName !== undefined && candidateName !== "") { variables['candidateName'] = candidateName }
+
+    const { data, loading, error } = await apolloClient.query({
+        query: GET_JOBS,
+        variables: variables,
+    });
+
+    return { data, loading, error };
+}
+export { getJobs, getJobApplications };

@@ -1,12 +1,12 @@
 import Link from "next/link.js";
 
-function Pagination({totalPages, currentPage, pageSize}) {
+function Pagination({totalPages, currentPage, pageSize, route = "/"}) {
     return (
         <div className="flex justify-center mt-5 space-x-1">
             {Array.from({ length: totalPages }, (_, i) => (
                 <Link
                     key={i}
-                    href={`/?page=${i + 1}&pageSize=${pageSize}`}
+                    href={route + `?page=${i + 1}&pageSize=${pageSize}`}
                     className={`px-2 py-1 text-sm rounded border ${
                         currentPage === i + 1
                             ? 'bg-blue-600 text-white border-blue-600'

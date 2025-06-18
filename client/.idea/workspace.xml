@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="20a9488b-5ca4-4f31-8580-f097cd441dfd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../skaffold.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../skaffold.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/jobs/pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/jobs/pagination.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/job_applications/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/job_applications/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/products/[productId].js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/products/new.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/graphql/jobsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/graphql/jobsService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,9 +20,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2yUScX3oTkF9gnEwbpSEJuxkKzK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -27,6 +34,10 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/willnguyen/workspace/glassdoor/client",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -47,6 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1749887738571</updated>
       <workItem from="1749887739855" duration="8000" />
+      <workItem from="1750240303563" duration="3755000" />
     </task>
     <servers />
   </component>
