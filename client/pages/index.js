@@ -4,6 +4,7 @@ import {gql, useQuery} from "@apollo/client";
 import apolloClient from "../lib/apolloClient.js";
 import Pagination from "../components/jobs/pagination.js";
 import {getJobs} from "../services/graphql/jobsService.js";
+import Search from "../components/search.js";
 
 const LandingPage = ({currentUser, page, pageSize}) => {
     const [currentPage, setCurrentPage] = useState(page);
@@ -43,44 +44,57 @@ const LandingPage = ({currentUser, page, pageSize}) => {
 
     return (
 
-        <div className="max-w-7xl mx-auto p-6 rounded-lg m-5" >
+        <div className="max-w-7xl mx-auto rounded-lg m-5" >
 
-            <h3 className="text-xl font-bold mb-2 text-gray-800">🛍️ jobs</h3>
-            <div className="w-full max-w-md mx-auto mt-10">
-                <input
-                    onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                            onSearch(e.target.value);
-                        }
-                    }}
-                    type="text"
-                    placeholder="Search..."
-                    className="w-full px-4 py-2 border-b border-b-blue-500 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-            </div>
+            <h3 className="text-xl font-bold mb-2 text-gray-800">🛍️ Jobs</h3>
+            <Search onSearch={onSearch}></Search>
             <h4 className="text-sm text-gray-600 mb-6 text-center">
                 <small>Total: {total}</small>
             </h4>
 
-            <Pagination totalPages={totalPages} currentPage={currentPage} pageSize={pageSize}></Pagination>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-5 ">
-                {jsonData?.map((job) => (
-                    <div
-                        key={job.id}
-                        className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition"
-                    >
-                        <h5 className="text-lg font-semibold text-gray-700">{job.title}</h5>
-                        {/*<p className="text-sm text-gray-500">ID: {job.id}</p>*/}
-                        <p className="text-sm text-gray-500">{job.description}</p>
-                        <p className="text-sm text-gray-500">Salary: {job.salary}</p>
-                        <Link
-                            href={`/jobs/${job.id}`}
-                            className="inline-block mt-3 text-blue-600 hover:underline"
-                        >
-                            View Details →
-                        </Link>
-                    </div>
-                ))}
+            {/*<Pagination totalPages={totalPages} currentPage={currentPage} pageSize={pageSize}></Pagination>*/}
+            <div className="overflow-x-auto mt-6">
+                <table className="min-w-full table-auto bg-white shadow-md rounded-lg">
+                    <thead className="bg-gray-50">
+                    <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Title
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Description
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Salary
+                        </th>
+                        <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Actions
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                    {jsonData?.map((job) => (
+                        <tr key={job.id}>
+                            <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-normal break-words max-w-xs">
+                                {job.title}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-600 whitespace-normal break-words max-w-md">
+                                {job.description}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">
+                                {job.salary}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-right">
+                                <Link
+                                    href={`/jobs/${job.id}`}
+                                    className="text-blue-600 hover:underline font-medium"
+                                >
+                                    View →
+                                </Link>
+                            </td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
             </div>
 
             <Pagination totalPages={totalPages} currentPage={currentPage} pageSize={pageSize}></Pagination>

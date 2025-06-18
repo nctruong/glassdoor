@@ -42,7 +42,7 @@ const Header = ({currentUser}) => {
                             <span className="text-xl font-bold text-gray"><Link
                                 className="navbar-brand ml-5" href="https://www.linkedin.com/in/willnguyendotdev/"
                                 style={{marginLeft: 15 + 'px'}}>
-                                <small>Will Nguyen.</small>
+                                <small>🧑‍💼Will Nguyen.</small>
                             </Link>
                             </span>
                         </div>

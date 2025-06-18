@@ -3,10 +3,10 @@ import {useEffect, useState} from "react";
 import {gql, useQuery} from "@apollo/client";
 import apolloClient from "../../lib/apolloClient.js";
 import Pagination from "../../components/jobs/pagination.js";
-import {getJobApplications} from "../../services/graphql/jobsService.js";
+import {getUsers} from "../../services/graphql/jobsService.js";
 import Search from "../../components/search.js";
 
-const JobApplications = ({currentUser, page, pageSize}) => {
+const Users = ({currentUser, page, pageSize}) => {
     const [currentPage, setCurrentPage] = useState(page);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -17,10 +17,10 @@ const JobApplications = ({currentUser, page, pageSize}) => {
 
     useEffect(() => {
         const fetchJobs = async () => {
-            const {data, loading, error} = await getJobApplications(page, pageSize);
-            setJsonData(data.jobApplications.data);
-            setCurrentPage(data.jobApplications.page);
-            setTotal(data.jobApplications.total)
+            const {data, loading, error} = await getUsers(page, pageSize);
+            setJsonData(data.Users.data);
+            setCurrentPage(data.Users.page);
+            setTotal(data.Users.total)
         }
         fetchJobs()
     }, [page]);
@@ -33,10 +33,10 @@ const JobApplications = ({currentUser, page, pageSize}) => {
         page = 1
         pageSize = 25
         setSearchQuery(value)
-        const {data, loading, error} = await getJobApplications(page, pageSize, value);
-        setJsonData(data.jobApplications.data);
-        setCurrentPage(data.jobApplications.page);
-        setTotal(data.jobApplications.total)
+        const {data, loading, error} = await getUsers(page, pageSize, value);
+        setJsonData(data.Users.data);
+        setCurrentPage(data.Users.page);
+        setTotal(data.Users.total)
     }
 
     if (loading) return <p>Loading...</p>;
@@ -46,7 +46,7 @@ const JobApplications = ({currentUser, page, pageSize}) => {
 
         <div className="max-w-7xl mx-auto rounded-lg m-5" >
 
-            <h3 className="text-xl font-bold mb-2 text-gray-800">📄️ JobApplications</h3>
+            <h3 className="text-xl font-bold mb-2 text-gray-800">📄️ Users</h3>
             <Search onSearch={onSearch}></Search>
             <h4 className="text-sm text-gray-600 mb-6 text-center">
                 <small>Total: {total}</small>
@@ -102,9 +102,9 @@ const JobApplications = ({currentUser, page, pageSize}) => {
     );
 };
 
-JobApplications.getInitialProps = async (context) => {
+Users.getInitialProps = async (context) => {
     const {page = 1, pageSize = 25} = context.query;
     return {page, pageSize};
 };
 
-export default JobApplications;
+export default Users;
