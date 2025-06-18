@@ -14,9 +14,6 @@ const Header = ({currentUser}) => {
         setLinks([
             !signedIn && {label: 'Sign Up', href: '/auth/signup'},
             !signedIn && {label: 'Sign In', href: '/auth/signin'},
-            {label: 'Jobs', href: '/'},
-            {label: 'Jobs Applications', href: '/job_applications/'},
-            {label: 'Users', href: '/users/'}
         ]
             .filter((linkConfig) => linkConfig)
             .map(({label, href}) => {

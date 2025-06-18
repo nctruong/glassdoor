@@ -1,33 +1,28 @@
 import {gql} from "@apollo/client";
 import apolloClient from "../../lib/apolloClient.js";
 
-const getUsers = async (pageIndex, pageSize, params = null) => {
+const getUsers = async (pageIndex, pageSize, email = "") => {
     const GET_JOBS = gql`
-        query GetJobs($pageIndex: Int!, $pageSize: Int!, $params: JobFilterParams  ) {
-            jobCollection(pageIndex: $pageIndex, pageSize: $pageSize, params: $params) {
-                jobs {
-                    id
+        query GetUsers($pageIndex: Int!, $pageSize: Int!, $email: String  ) {
+            users(pageIndex: $pageIndex, pageSize: $pageSize, email: $email) {
+                data {
+                    email
+                    fullname
+                    phone
                     title
-                    description
-                    salary
-                    employer {
-                        name
-                        email
-                    }
-                },
-                total,
-                page,
-                pageSize
+                    role
+                }
+                total
+                page
             }
         }
     `
-    console.log(params)
     let variables = {
         pageIndex: parseInt(pageIndex),
         pageSize: parseInt(pageSize),
     }
     console.log(variables)
-    if (params && params['title'] !== '') variables['params'] = params
+    if (email !== "") variables['email'] = email
     const { data, loading, error } = await apolloClient.query({
         query: GET_JOBS,
         variables: variables,
@@ -35,3 +30,5 @@ const getUsers = async (pageIndex, pageSize, params = null) => {
 
     return { data, loading, error };
 }
+
+export { getUsers }

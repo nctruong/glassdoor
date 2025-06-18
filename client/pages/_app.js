@@ -6,7 +6,7 @@ import api from "../services/apiService.js";
 import Router, {useRouter} from "next/router";
 import auth from "../services/authService.js";
 import {useEffect} from "react";
-
+import Sidebar from "../components/sidebar.js";
 const AppComponent = ({Component, pageProps, currentUser}) => {
     const router = useRouter()
     useEffect(() => {
@@ -21,7 +21,14 @@ const AppComponent = ({Component, pageProps, currentUser}) => {
         <ApolloProvider client={client}>
             <Header currentUser={currentUser}/>
             <div className="container mx-auto">
-                <Component currentUser={currentUser} {...pageProps} />
+                <div className="flex min-h-screen bg-gray-100">
+                    <Sidebar />
+
+                    {/* Main content */}
+                    <main className="flex-1 p-6">
+                        <Component currentUser={currentUser} {...pageProps} />
+                    </main>
+                </div>
             </div>
         </ApolloProvider>
     )

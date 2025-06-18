@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {gql, useQuery} from "@apollo/client";
 import apolloClient from "../../lib/apolloClient.js";
 import Pagination from "../../components/jobs/pagination.js";
-import {getUsers} from "../../services/graphql/jobsService.js";
+import {getUsers} from "../../services/graphql/usersService.js";
 import Search from "../../components/search.js";
 
 const Users = ({currentUser, page, pageSize}) => {
@@ -18,9 +18,9 @@ const Users = ({currentUser, page, pageSize}) => {
     useEffect(() => {
         const fetchJobs = async () => {
             const {data, loading, error} = await getUsers(page, pageSize);
-            setJsonData(data.Users.data);
-            setCurrentPage(data.Users.page);
-            setTotal(data.Users.total)
+            setJsonData(data.users.data);
+            setCurrentPage(data.users.page);
+            setTotal(data.users.total)
         }
         fetchJobs()
     }, [page]);
@@ -34,9 +34,9 @@ const Users = ({currentUser, page, pageSize}) => {
         pageSize = 25
         setSearchQuery(value)
         const {data, loading, error} = await getUsers(page, pageSize, value);
-        setJsonData(data.Users.data);
-        setCurrentPage(data.Users.page);
-        setTotal(data.Users.total)
+        setJsonData(data.users.data);
+        setCurrentPage(data.users.page);
+        setTotal(data.users.total)
     }
 
     if (loading) return <p>Loading...</p>;
@@ -46,7 +46,7 @@ const Users = ({currentUser, page, pageSize}) => {
 
         <div className="max-w-7xl mx-auto rounded-lg m-5" >
 
-            <h3 className="text-xl font-bold mb-2 text-gray-800">📄️ Users</h3>
+            <h3 className="text-xl font-bold mb-2 text-gray-800">🧑‍ Users</h3>
             <Search onSearch={onSearch}></Search>
             <h4 className="text-sm text-gray-600 mb-6 text-center">
                 <small>Total: {total}</small>
@@ -72,20 +72,20 @@ const Users = ({currentUser, page, pageSize}) => {
                     </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
-                    {jsonData?.map((job_application) => (
-                        <tr key={job_application.id}>
+                    {jsonData?.map((user) => (
+                        <tr key={user.id}>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                                {job_application.job.title}
+                                {user.title}
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                                {job_application.email}
+                                {user.email}
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                                {job_application.fullname}
+                                {user.fullname}
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
                                 <Link
-                                    href={`/job_applications/${job_application.id}`}
+                                    href={`/job_applications/${user.id}`}
                                     className="text-blue-600 hover:underline font-medium"
                                 >
                                     View →

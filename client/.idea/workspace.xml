@@ -5,15 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20a9488b-5ca4-4f31-8580-f097cd441dfd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/sidebar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/jobs/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/job_applications/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/job_applications/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/users/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/users/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/graphql/usersService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/graphql/usersService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/app/graphql/resolvers/user_list.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/graphql/resolvers/user_list.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/app/graphql/types/job_application_collection_type.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/graphql/types/job_application_collection_type.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/app/graphql/types/job_application_filter_params.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/graphql/types/job_application_filter_params.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/app/graphql/types/user_type.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/graphql/types/user_type.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/app/models/concerns/searchable.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/models/concerns/searchable.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/app/models/job_application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/models/job_application.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/db/seeds.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +35,9 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2yUScX3oTkF9gnEwbpSEJuxkKzK" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,7 +47,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/willnguyen/workspace/glassdoor/client",
+    "last_opened_file_path": "/Users/willnguyen/workspace/glassdoor/client/pages/users",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -46,6 +57,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/users" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/job_applications" />
+      <recent name="$PROJECT_DIR$/pages/users" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -62,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1749887738571</updated>
       <workItem from="1749887739855" duration="8000" />
-      <workItem from="1750240303563" duration="5121000" />
+      <workItem from="1750240303563" duration="7455000" />
     </task>
     <servers />
   </component>

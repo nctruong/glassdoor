@@ -1,110 +1,64 @@
+// app/dashboard/page.tsx
 import Link from 'next/link';
-import {useEffect, useState} from "react";
-import {gql, useQuery} from "@apollo/client";
-import apolloClient from "../lib/apolloClient.js";
-import Pagination from "../components/jobs/pagination.js";
-import {getJobs} from "../services/graphql/jobsService.js";
-import Search from "../components/search.js";
 
-const LandingPage = ({currentUser, page, pageSize}) => {
-    const [currentPage, setCurrentPage] = useState(page);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
-    const [jsonData, setJsonData] = useState([]);
-    const [total, setTotal] = useState(0);
-    const [totalPages, setTotalPages] = useState(0);
-    const [searchQuery, setSearchQuery] = useState("");
+const mockApplications = [
+    { id: 1, title: 'Frontend Engineer', candidate: 'Alice Le', email: 'alice@example.com', salary: '1200' },
+    { id: 2, title: 'Backend Engineer', candidate: 'Bob Nguyen', email: 'bob@example.com', salary: '1500' },
+    { id: 3, title: 'DevOps Engineer', candidate: 'Carol Tran', email: 'carol@example.com', salary: '1800' },
+];
 
-    useEffect(() => {
-        const fetchJobs = async () => {
-            const {data, loading, error} = await getJobs(page, pageSize);
-            setJsonData(data.jobCollection.jobs);
-            setCurrentPage(data.jobCollection.page);
-            setTotal(data.jobCollection.total)
-        }
-        fetchJobs()
-    }, [page]);
-
-    useEffect(() => {
-        setTotalPages(Math.ceil(total / pageSize))
-    }, [total, jsonData])
-
-    const onSearch = async (value) => {
-        page = 1
-        pageSize = 25
-        setSearchQuery(value)
-        const {data, loading, error} = await getJobs(page, pageSize, { title: value });
-        setJsonData(data.jobCollection.jobs);
-        setCurrentPage(data.jobCollection.page);
-        setTotal(data.jobCollection.total)
-    }
-
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error.message}</p>;
-
+export default function DashboardPage() {
     return (
+        <div >
 
-        <div className="max-w-7xl mx-auto rounded-lg m-5" >
+                <h1 className="text-2xl font-semibold mb-4">Dashboard</h1>
 
-            <h3 className="text-xl font-bold mb-2 text-gray-800">🛍️ Jobs</h3>
-            <Search onSearch={onSearch}></Search>
-            <h4 className="text-sm text-gray-600 mb-6 text-center">
-                <small>Total: {total}</small>
-            </h4>
+                {/* Stats */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div className="bg-white p-4 rounded-lg shadow">
+                        <h2 className="text-gray-500 text-sm">Total Applications</h2>
+                        <p className="text-xl font-bold">324</p>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg shadow">
+                        <h2 className="text-gray-500 text-sm">Jobs Posted</h2>
+                        <p className="text-xl font-bold">15</p>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg shadow">
+                        <h2 className="text-gray-500 text-sm">Pending Reviews</h2>
+                        <p className="text-xl font-bold">8</p>
+                    </div>
+                </div>
 
-            {/*<Pagination totalPages={totalPages} currentPage={currentPage} pageSize={pageSize}></Pagination>*/}
-            <div className="overflow-x-auto mt-6">
-                <table className="min-w-full table-auto bg-white shadow-md rounded-lg">
-                    <thead className="bg-gray-50">
-                    <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Title
-                        </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Description
-                        </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Salary
-                        </th>
-                        <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Actions
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-200">
-                    {jsonData?.map((job) => (
-                        <tr key={job.id}>
-                            <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-normal break-words max-w-xs">
-                                {job.title}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-600 whitespace-normal break-words max-w-md">
-                                {job.description}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">
-                                {job.salary}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-right">
-                                <Link
-                                    href={`/jobs/${job.id}`}
-                                    className="text-blue-600 hover:underline font-medium"
-                                >
-                                    View →
-                                </Link>
-                            </td>
+                {/* Applications Table */}
+                <div className="bg-white rounded-lg shadow overflow-x-auto">
+                    <table className="min-w-full table-auto">
+                        <thead className="bg-gray-50 text-left">
+                        <tr>
+                            <th className="px-4 py-2 text-sm font-medium text-gray-500">Job Title</th>
+                            <th className="px-4 py-2 text-sm font-medium text-gray-500">Candidate</th>
+                            <th className="px-4 py-2 text-sm font-medium text-gray-500">Email</th>
+                            <th className="px-4 py-2 text-sm font-medium text-gray-500">Salary</th>
+                            <th className="px-4 py-2 text-sm font-medium text-gray-500 text-right">Action</th>
                         </tr>
-                    ))}
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody className="divide-y divide-gray-200">
+                        {mockApplications.map((app) => (
+                            <tr key={app.id}>
+                                <td className="px-4 py-2 text-sm text-gray-700">{app.title}</td>
+                                <td className="px-4 py-2 text-sm text-gray-700">{app.candidate}</td>
+                                <td className="px-4 py-2 text-sm text-gray-500">{app.email}</td>
+                                <td className="px-4 py-2 text-sm text-gray-500">${app.salary}</td>
+                                <td className="px-4 py-2 text-sm text-right">
+                                    <Link href={`/applications/${app.id}`} className="text-blue-600 hover:underline">
+                                        View
+                                    </Link>
+                                </td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
 
-            <Pagination totalPages={totalPages} currentPage={currentPage} pageSize={pageSize}></Pagination>
         </div>
     );
-};
-
-LandingPage.getInitialProps = async (context) => {
-    const {page = 1, pageSize = 25} = context.query;
-    return {page, pageSize};
-};
-
-export default LandingPage;
+}
