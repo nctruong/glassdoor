@@ -9,3 +9,4 @@ out/
 # Environment variables
 .env*
 infra/data
+.terraform/
