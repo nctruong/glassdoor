@@ -6,7 +6,9 @@ manifests:
     - infra/k8s/*
     - infra/k8s-storage/*
     - infra/k8s-dev/*
-#      - infra/k8s-monitor/*
+    - infra/k8s-monitor/dashboard-admin.yml
+    - infra/k8s-monitor/dashboard.yml
+    - infra/k8s-monitor/ingress-dashboard.yml
 deploy:
   kubectl: {}
 
@@ -64,12 +66,12 @@ build:
 #        - rails
 #        - db:migrate
 
-portForward:
-  - resourceType: service
-    resourceName: postgres
-    port: 5432
-    localPort: 5432
-  - resourceType: service
-    resourceName: elasticsearch
-    port: 9200
-    localPort: 9200
+#portForward:
+#  - resourceType: service
+#    resourceName: postgres
+#    port: 5432
+#    localPort: 5432
+#  - resourceType: service
+#    resourceName: elasticsearch
+#    port: 9200
+#    localPort: 9200

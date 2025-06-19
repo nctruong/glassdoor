@@ -50,3 +50,16 @@ Build a website for recruitment, like glassdoor. Providing functionalities to ap
 - Interoperability: integrate with external system by API, GraphQL, JSON
 - Testability: automation test
 - Compliance: data retention policy
+
+## Command
+``` 
+kubectl -n monitoring create token admin-user
+
+```
+
+### Terraform
+https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
+```
+aws eks --region $(terraform output -raw region) update-kubeconfig \
+    --name $(terraform output -raw cluster_name)
+```
