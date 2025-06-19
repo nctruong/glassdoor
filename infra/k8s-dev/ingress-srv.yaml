@@ -4,7 +4,8 @@ metadata:
   name: ingress-service
   annotations:
     kubernetes.io/ingress.class: nginx
-#    nginx.ingress.kubernetes.io/rewrite-target: /
+#    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" # open server will fail over
+#    nginx.ingress.kubernetes.io/rewrite-target: / # will replace all route to /
 spec:
   rules:
     - host: glassdoor.dev
