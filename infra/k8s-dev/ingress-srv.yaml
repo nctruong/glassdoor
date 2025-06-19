@@ -4,17 +4,26 @@ metadata:
   name: ingress-service
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /
+#    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
     - host: glassdoor.dev
       http:
         paths:
-          - path: /
-            pathType: Prefix
+          - path: /api/v1
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: server
                 port:
                   number: 3000
+
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: client-service
+                port:
+                  number: 3000
+
 

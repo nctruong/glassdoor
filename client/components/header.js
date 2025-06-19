@@ -36,10 +36,10 @@ const Header = ({currentUser}) => {
                     <div className="flexspace-x-5">
                         <div className="flex flex-col items-left">
                             <span className="text-xl font-bold text-indigo-600"><h1><Link href="/">Glassdoor-Demo</Link></h1></span>
-                            <span className="text-xl font-bold text-gray"><Link
+                            <span className="text-xs font-bold text-gray"><Link
                                 className="navbar-brand ml-5" href="https://www.linkedin.com/in/willnguyendotdev/"
                                 style={{marginLeft: 15 + 'px'}}>
-                                <small>🧑‍💼Will Nguyen.</small>
+                                <small>Will Nguyen Linkedin</small>
                             </Link>
                             </span>
                         </div>

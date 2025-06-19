@@ -3,7 +3,8 @@ kind: Config
 
 manifests:
   rawYaml:
-    - infra/k8s-storage
+    - infra/k8s/*
+    - infra/k8s-storage/*
     - infra/k8s-dev/*
 #      - infra/k8s-monitor/*
 deploy:
@@ -15,27 +16,33 @@ build:
     useBuildkit: true
   platforms: ["linux/amd64"]
 
-#  artifacts:
-#    - image: willnguyen/glassdoor-server
-#      context: server
-#      platforms: ["linux/amd64"]
-#      docker:
-#        dockerfile: Dockerfile
-#
-#      sync:
-#        manual:
-#          - src: "app/**/*.rb"
-#            dest: "app"
-#          - src: "app/**/*.erb"
-#            dest: "app"
-#          - src: "lib/**/*.erb"
-#            dest: "app"
-#          - src: "config/**/*.rb"
-#            dest: "config"
-#          - src: "Gemfile"
-#            dest: "."
-#          - src: "Gemfile.lock"
-#            dest: "."
+  artifacts:
+    - image: willnguyen/glassdoor-server
+      context: server
+      platforms: ["linux/amd64"]
+      docker:
+        dockerfile: Dockerfile
+
+      sync:
+        manual:
+          - src: "app/**/*.erb"
+            dest: "app"
+          - src: "lib/**/*.erb"
+            dest: "lib"
+          - src: "config/**/*.rb"
+            dest: "config"
+          - src: "Gemfile"
+            dest: "."
+          - src: "Gemfile.lock"
+            dest: "."
+    - image: willnguyen/client-service
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync: # listen for files changes and deploy to dest which is in container
+        manual:
+          - src: '**/*.js'
+            dest: .
 #  hooks:
 #    after:
 #      - command:

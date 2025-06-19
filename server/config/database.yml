@@ -24,7 +24,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    <<: *default
+    host: postgres
     database: glassdoor_development
     username: glassdoor
     password: glassdoor

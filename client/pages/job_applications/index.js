@@ -44,7 +44,7 @@ const JobApplications = ({currentUser, page, pageSize}) => {
 
     return (
 
-        <div className="max-w-7xl mx-auto rounded-lg m-5" >
+        <div className="max-w-7xl mx-auto rounded-lg" >
 
             <h3 className="text-xl font-bold mb-2 text-gray-800">📄️ JobApplications</h3>
             <Search onSearch={onSearch}></Search>

@@ -5,23 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20a9488b-5ca4-4f31-8580-f097cd441dfd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/sidebar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/jobs/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/sidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/users/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/users/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/graphql/usersService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/graphql/usersService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/app/graphql/resolvers/user_list.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/graphql/resolvers/user_list.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/app/graphql/types/job_application_collection_type.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/graphql/types/job_application_collection_type.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/app/graphql/types/job_application_filter_params.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/graphql/types/job_application_filter_params.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/app/graphql/types/user_type.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/graphql/types/user_type.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/app/models/concerns/searchable.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/models/concerns/searchable.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/app/models/job_application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/models/job_application.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/signin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/job_applications/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/job_applications/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/jobs/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/jobs/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/apiService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/apiService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../infra/k8s-dev/ingress-srv.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../infra/k8s-dev/ingress-srv.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/app/decorators/cv_decorator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app/decorators/cv_decorator.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/config/database.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../skaffold.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../skaffold.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,21 +38,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/willnguyen/workspace/glassdoor/client/pages/users",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/willnguyen/workspace/glassdoor/client/pages/users&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pages/users" />
@@ -82,7 +78,8 @@
       <option name="presentableId" value="Default" />
       <updated>1749887738571</updated>
       <workItem from="1749887739855" duration="8000" />
-      <workItem from="1750240303563" duration="7455000" />
+      <workItem from="1750240303563" duration="10970000" />
+      <workItem from="1750307544906" duration="1925000" />
     </task>
     <servers />
   </component>

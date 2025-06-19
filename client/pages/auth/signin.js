@@ -4,7 +4,7 @@ import Router from "next/router";
 
 export default () => {
     const [email, setEmail] = useState('test@example.com')
-    const [password, setPassword] = useState('123456')
+    const [password, setPassword] = useState('Password123!')
 
     const { doRequest, errors } = useRequest({
         url: '/api/v1/auth/login',

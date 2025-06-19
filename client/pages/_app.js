@@ -5,7 +5,7 @@ import Header from "../components/header";
 import api from "../services/apiService.js";
 import Router, {useRouter} from "next/router";
 import auth from "../services/authService.js";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Sidebar from "../components/sidebar.js";
 const AppComponent = ({Component, pageProps, currentUser}) => {
     const router = useRouter()

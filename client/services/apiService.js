@@ -7,9 +7,9 @@ function isClientSide() {
 const apiService = () => {
     let baseUrl;
     if (typeof window === 'undefined') {
-        baseUrl = 'http://localhost:3001'
+        baseUrl = 'https://glassdoor.dev'
     } else {
-        baseUrl = 'http://localhost:3001'
+        baseUrl = 'https://glassdoor.dev'
     }
     console.log(baseUrl);
     const axiosClient = axios.create({

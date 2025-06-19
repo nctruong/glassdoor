@@ -7,13 +7,13 @@ const SideBar = ({currentUser}) => {
 
     const navItems = [
         {label: 'Dashboard', href: '/'},
+        {label: 'Job Applications', href: '/job_applications'},
         {label: 'Jobs', href: '/jobs'},
-        {label: 'Applications', href: '/job_applications'},
     ]
 
     return (
         <aside className="w-64 bg-white shadow-md p-5 hidden md:block">
-            <h2 className="text-xl font-bold mb-6">Recruitment Admin</h2>
+            <h2 className="text-xl font-bold mb-6">Admin</h2>
             <nav className="space-y-3">
                 {navItems.map(({ label, href }) => (
                     <Link
