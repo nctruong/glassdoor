@@ -3,9 +3,17 @@ name: tests
 on:
   pull_request
 
+env:
+  RAILS_ENV: test
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd server && echo "hello server"
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.4.4
+          bundler-cache: true
+      - run: cd server && bundle install && rails db:create && rails db:migrate && rspec
