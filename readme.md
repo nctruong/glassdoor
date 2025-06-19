@@ -63,3 +63,7 @@ https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
 aws eks --region $(terraform output -raw region) update-kubeconfig \
     --name $(terraform output -raw cluster_name)
 ```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
