@@ -68,6 +68,8 @@ aws eks --region $(terraform output -raw region) update-kubeconfig \
 ```kubectl -n argo create token argo-user```
 
 ## Argocd
+- apply argocd.yaml first, before running skaffold
+- argocd read application.yml from git, not in local source. Push changes to git first.
 login by `admin` and below secret:
 ```
 kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo

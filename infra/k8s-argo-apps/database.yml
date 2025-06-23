@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: main
+  name: database
 spec:
   project: default
   source:
     repoURL: https://github.com/nctruong/glassdoor.git
     targetRevision: HEAD
-    path: infra/k8s/
+    path: infra/k8s-databases
   destination:
     server: https://kubernetes.default.svc
     namespace: default

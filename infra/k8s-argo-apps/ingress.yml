@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/nctruong/glassdoor.git
+    targetRevision: HEAD
+    path: infra/k8s-dev/ingress-srv.yml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
