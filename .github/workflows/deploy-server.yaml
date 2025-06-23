@@ -22,8 +22,8 @@ jobs:
       - name: Build and push Docker image
         run: |
           cd server
-          docker build -t willnguyen/server .
-          docker push willnguyen/server
+          docker build -t willnguyen/glassdoor-server .
+          docker push willnguyen/glassdoor-server
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2

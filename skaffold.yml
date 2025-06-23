@@ -3,18 +3,19 @@ kind: Config
 
 manifests:
   rawYaml:
-    - infra/k8s/*
     - infra/k8s-storage/*
-    - infra/k8s-dev/*
-    - infra/k8s-monitor/dashboard-admin.yml
-    - infra/k8s-monitor/dashboard.yml
-    - infra/k8s-monitor/ingress-dashboard.yml
+    - infra/k8s/*
+#    - infra/k8s-dev/*
+    - infra/k8s-cd/*
+#    - infra/k8s-monitor/dashboard-admin.yml
+#    - infra/k8s-monitor/dashboard.yml
+#    - infra/k8s-monitor/ingress-dashboard.yml
 deploy:
   kubectl: {}
 
 build:
   local:
-    push: false
+    push: true
     useBuildkit: true
   platforms: ["linux/amd64"]
 
@@ -37,7 +38,7 @@ build:
             dest: "."
           - src: "Gemfile.lock"
             dest: "."
-    - image: willnguyen/client-service
+    - image: willnguyen/glassdoor-client
       context: client
       docker:
         dockerfile: Dockerfile
@@ -66,7 +67,11 @@ build:
 #        - rails
 #        - db:migrate
 
-#portForward:
+portForward:
+  - resourceType: service
+    resourceName: argocd-server
+    port: 443
+    localPort: 8080
 #  - resourceType: service
 #    resourceName: postgres
 #    port: 5432

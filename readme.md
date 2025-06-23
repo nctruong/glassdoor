@@ -63,6 +63,15 @@ https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
 aws eks --region $(terraform output -raw region) update-kubeconfig \
     --name $(terraform output -raw cluster_name)
 ```
+## Argo
+```kubectl create namespace argo```
+```kubectl -n argo create token argo-user```
+
+## Argocd
+login by `admin` and below secret:
+```
+kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
+```
 
 ## License
 

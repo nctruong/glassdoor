@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: willnguyen/client-service
+          image: willnguyen/glassdoor-client
 ---
 apiVersion: v1
 kind: Service
