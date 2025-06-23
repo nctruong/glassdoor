@@ -7,7 +7,7 @@ spec:
   source:
     repoURL: https://github.com/nctruong/glassdoor.git
     targetRevision: HEAD
-    path: infra/k8s/server-depl.yml
+    path: infra/k8s/server
   destination:
     server: https://kubernetes.default.svc
     namespace: default
