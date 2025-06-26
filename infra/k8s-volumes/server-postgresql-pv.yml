@@ -8,4 +8,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /Users/willnguyen/workspace/glassdoor/infra/data/k8s/postgres   # <-- This is a local directory on your host machine
+    path: /Users/willnguyen/workspace/glassdoor/infra/data   # <-- This is a local directory on your host machine
