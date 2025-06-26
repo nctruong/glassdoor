@@ -34,6 +34,6 @@ jobs:
           sed -i "s|image: willnguyen/glassdoor-server:.*|image: willnguyen/glassdoor-server:${IMAGE_TAG}|" infra/k8s/server/server-depl.yml
           git config user.name "github-actions"
           git config user.email "ci@github.com"
+          git add infra/k8s/server/server-depl.yml
           git commit -am "chore: update image to $IMAGE_TAG"
-          echo "${{ secrets.TOKEN }}"
-          git push https://x-access-token:${{ secrets.TOKEN }}@github.com/nctruong/glassdoor.git
+          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/nctruong/glassdoor.git
