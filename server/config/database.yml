@@ -24,21 +24,21 @@ test:
   password: glassdoor
 
 production:
-#  primary: &primary_production
-  <<: *default
-  host: postgres
-  database: glassdoor_production
-  username: glassdoor
-  password: glassdoor
-#  cache:
-#    <<: *primary_production
-#    database: server_production_cache
-#    migrations_paths: db/cache_migrate
-#  queue:
-#    <<: *primary_production
-#    database: server_production_queue
-#    migrations_paths: db/queue_migrate
-#  cable:
-#    <<: *primary_production
-#    database: server_production_cable
-#    migrations_paths: db/cable_migrate
+  primary: &primary_production
+    <<: *default
+    host: postgres
+    database: glassdoor_production
+    username: glassdoor
+    password: glassdoor
+  cache:
+    <<: *primary_production
+    database: server_production_cache
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *primary_production
+    database: server_production_queue
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *primary_production
+    database: server_production_cable
+    migrations_paths: db/cable_migrate
