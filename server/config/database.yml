@@ -24,12 +24,12 @@ test:
   password: glassdoor
 
 production:
-  primary: &primary_production
-    <<: *default
-    host: postgres
-    database: glassdoor_production
-    username: glassdoor
-    password: glassdoor
+#  primary: &primary_production
+  <<: *default
+  host: postgres
+  database: glassdoor_production
+  username: glassdoor
+  password: glassdoor
 #  cache:
 #    <<: *primary_production
 #    database: server_production_cache
