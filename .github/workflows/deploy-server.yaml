@@ -36,4 +36,4 @@ jobs:
           git config user.email "ci@github.com"
           git commit -am "chore: update image to $IMAGE_TAG"
           echo "${{ secrets.TOKEN }}"
-          git push https://nctruong:${{ secrets.TOKEN }}@github.com/nctruong/glassdoor.git
+          git push https://x-access-token:${{ secrets.TOKEN }}@github.com/nctruong/glassdoor.git
