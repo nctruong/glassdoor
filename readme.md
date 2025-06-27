@@ -7,6 +7,7 @@ In this project, we basically have:
 - Elasticsearch
 - Rspec Unit tests
 - PostgreSQL
+
 Check my other repository out if you want to see NodeJS, NextJS with Mongoose: [Shopee](https://github.com/nctruong/shopee)
 
 ## Table of Contents
