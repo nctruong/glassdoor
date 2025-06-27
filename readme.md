@@ -1,6 +1,18 @@
 # Glassdoor recruitment system `In-progress`
 Build a website for recruitment, like glassdoor. Providing functionalities to approve/reject job application.
 ## Table of Contents
+<!--toc:start-->
+
+  - [Table of Contents](#table-of-contents)
+  - [Demo Video](#demo-video)
+  - [Repository Structure](#repository-structure)
+  - [System Architecture](#system-architecture)
+  - [Installation and Usage](#installation-and-usage)
+    - [Development](#development)
+    - [Production](#production)
+  - [CI/CD Pipeline](#cicd-pipeline) 
+<!--toc:end-->
+
 ## Demo Video
 ![Argocd](./images/argocd.png)
 ![Jobs](./images/jobs.png)
@@ -20,9 +32,24 @@ The repository is organized into distinct directories, each serving a specific p
 ```
 ## System Architecture
 ## Installation and Usage
+### Development
+Deploy argocd first:
+```
+kubectl apply -f infa/argocd.yml
+kubectl apply -f infa/argocd-role-binding.yml
+```
+Deploy argocd applications:
+```
+kubectl apply -f infa/k8s-argo-apps/
+```
+Then argocd will automatically deliver other deployments.
+### Production
+Using Terraform to deploy into AWS cluster (updating...)
 ## CI/CD Pipeline
+Using github workflow: 
+`deploy to main` -> `github action builds and pushes images to docker` -> `change image tag in yml` -> `argo sync`
 
-## Bonus
+## More Info
 ### Tech Stacks
 - Ruby on Rails
   - Proc, Lambda
@@ -69,10 +96,6 @@ The repository is organized into distinct directories, each serving a specific p
 - Testability: automation test
 - Compliance: data retention policy
 
-### Commands
-``` 
-kubectl -n monitoring create token admin-user
-```
 ### Terraform
 https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
 ```
@@ -80,17 +103,20 @@ aws eks --region $(terraform output -raw region) update-kubeconfig \
     --name $(terraform output -raw cluster_name)
 ```
 ### Argo
-```kubectl create namespace argo```
-```kubectl -n argo create token argo-user```
+```
+kubectl create namespace argo
+kubectl -n argo create token argo-user
+```
 
 ### Argocd
-- apply argocd.yaml first, before running skaffold
-- argocd read application.yml from git, not in local source. Push changes to git first.
+Apply argocd.yaml first, before running skaffold.
+Argocd read application.yml from git, not in local source. Push changes to git first.
 login by `admin` and below secret:
 ```
 kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
 ```
-### Issues and Solutions
+
+### Typical Issues and Solutions
 FailedBinding
 volume "postgres-pv" already bound to a different claim.
 ```kubectl patch pv postgres-pv -p '{"spec":{"claimRef": null}}'```
