@@ -1,5 +1,14 @@
 # Glassdoor recruitment system `In-progress`
 Build a website for recruitment, like glassdoor. Providing functionalities to approve/reject job application.
+In this project, we basically have:
+- Backend by Ruby on Rails
+- Frontend by NextJS
+- API by GraphQL
+- Elasticsearch
+- Rspec Unit tests
+- PostgreSQL
+Check my other repository out if you want to see NodeJS, NextJS with Mongoose: [Shopee](https://github.com/nctruong/shopee)
+
 ## Table of Contents
 <!--toc:start-->
 
